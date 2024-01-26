@@ -7,11 +7,12 @@ namespace DMAWS_T2208E.Models
     public class Order
     {
         [Key]
-        public int ItemCode { get; set; }
-        public string ItemName { get; set; }
+        public int Id { get; set; }
+        public string ItemCode { get; set; } = string.Empty;
+        public string ItemName { get; set; } = string.Empty;
         public int ItemQty { get; set; }
-        public string OrderDelivery { get; set; }
-        public string OrderAddress { get; set; }
-        public string PhoneNumber { get; set; }
+        public DateTime OrderDelivery { get; set; }
+        public string OrderAddress { get; set; } = string.Empty;
+        public string PhoneNumber { get; set; } = string.Empty;
     }
 }

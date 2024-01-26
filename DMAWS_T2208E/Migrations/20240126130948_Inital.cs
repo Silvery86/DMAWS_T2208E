@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -14,17 +15,18 @@ namespace DMAWS_T2208E.Migrations
                 name: "OrderTbl",
                 columns: table => new
                 {
-                    ItemCode = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    ItemCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ItemName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ItemQty = table.Column<int>(type: "int", nullable: false),
-                    OrderDelivery = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    OrderDelivery = table.Column<DateTime>(type: "datetime2", nullable: false),
                     OrderAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderTbl", x => x.ItemCode);
+                    table.PrimaryKey("PK_OrderTbl", x => x.Id);
                 });
         }
 

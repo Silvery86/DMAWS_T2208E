@@ -47,7 +47,7 @@ namespace DMAWS_T2208E.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutOrder(int id, Order order)
         {
-            if (id != order.ItemCode)
+            if (id != order.Id)
             {
                 return BadRequest();
             }
@@ -81,7 +81,7 @@ namespace DMAWS_T2208E.Controllers
             _context.OrderTbl.Add(order);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetOrder", new { id = order.ItemCode }, order);
+            return CreatedAtAction("GetOrder", new { id = order.Id }, order);
         }
 
         // DELETE: api/Orders/5
@@ -102,7 +102,7 @@ namespace DMAWS_T2208E.Controllers
 
         private bool OrderExists(int id)
         {
-            return _context.OrderTbl.Any(e => e.ItemCode == id);
+            return _context.OrderTbl.Any(e => e.Id == id);
         }
     }
 }
