@@ -1,0 +1,6 @@
+@DMAWS_T2208E_HostAddress = http://localhost:5202
+
+GET {{DMAWS_T2208E_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
